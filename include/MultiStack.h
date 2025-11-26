@@ -158,8 +158,16 @@ inline TMultiStack<T>::TMultiStack(int size_, int stackCount_)
 template <class T>
 TMultiStack<T>::TMultiStack(const TMultiStack& obj)
 {
+    data = nullptr;
+    stacks = nullptr;
+    len = 0;
+    StackCount = 0;
+    Starts = nullptr;
+    
     if (obj.len == 0 || obj.StackCount == 0)
-        TMultiStack<T>::TMultiStack();
+    {
+        return;  
+    }
     else
     {
         len = obj.len;
